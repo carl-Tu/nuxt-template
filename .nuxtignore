@@ -1,0 +1,9 @@
+# pages
+pages/_components/**
+pages/_hooks/**
+pages/**/_hooks/**
+pages/**/_components/**
+
+# layouts
+layouts/**/_components/**
+layouts/**/_hooks/**
