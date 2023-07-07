@@ -7,6 +7,9 @@
 
 import { checker } from 'vite-plugin-checker'
 import svgLoader from 'vite-svg-loader'
+import IconsResolver from 'unplugin-icons/resolver'
+import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
 
 import { scripts } from './package.json'
 
@@ -17,7 +20,8 @@ export default defineNuxtConfig({
       title: 'nuxt-template'
     }
   },
-  modules: ['@element-plus/nuxt', '@vueuse/nuxt', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
+  plugins: ['~/plugins/arco-design.ts'],
+  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
   pinia: {
     autoImports: [
       'defineStore' // import { defineStore } from 'pinia'
@@ -28,17 +32,22 @@ export default defineNuxtConfig({
       apiHost: ''
     }
   },
+  css: ['@arco-design/web-vue/dist/arco.css'],
   vite: {
     plugins: [
-      svgLoader(),
-      checker({
-        vueTsc: true,
-        eslint: {
-          lintCommand: scripts['lint:js']
-        },
-        stylelint: {
-          lintCommand: scripts['lint:css']
-        }
+      Components({
+        dts: true, // enabled by default if `typescript` is installed
+        resolvers: [
+          IconsResolver({
+            // to avoid naming conflicts
+            // a prefix can be specified for icons
+            prefix: 'i'
+          }),
+          ArcoResolver({
+            importStyle: 'less',
+            resolveIcons: true
+          })
+        ]
       })
     ],
     css: {

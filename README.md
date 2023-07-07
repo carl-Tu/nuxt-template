@@ -39,4 +39,11 @@ Locally preview production build:
 npm run preview
 ```
 
+### ps
+```
+arco 需单独引用plugins
+
+nuxt.config配置
+```
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

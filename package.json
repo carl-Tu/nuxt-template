@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@element-plus/nuxt": "^1.0.5",
+    "@arco-design/web-vue": "^2.48.0",
     "@types/dplayer": "^1.25.2",
     "@types/lodash-es": "^4.17.7",
     "@vueuse/nuxt": "^10.2.0",
@@ -46,8 +46,11 @@
     "dayjs": "^1.11.8",
     "dplayer": "^1.27.1",
     "hls.js": "^1.4.7",
+    "less": "^4.1.3",
     "lodash-es": "^4.17.21",
     "mpegts.js": "^1.7.3",
-    "pinia": "^2.1.4"
+    "pinia": "^2.1.4",
+    "unplugin-icons": "^0.16.3",
+    "unplugin-vue-components": "^0.25.1"
   }
 }
